@@ -8,8 +8,8 @@ app              = express();
 
 // APP CONFIG
 //configure mongoose
-// mongoose.connect("mongodb://localhost/restful_blog_app"); 
-mongoose.connect("mongodb://mahfei:greenorange@ds121483.mlab.com:21483/restfulblog");
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+mongoose.connect(url); 
 app.set("view engine", "ejs"); 
 app.use(express.static("public")); //tells express to serve the public directory
 app.use(bodyParser.urlencoded({extended: true}));
